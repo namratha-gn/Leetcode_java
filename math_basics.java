@@ -45,6 +45,38 @@ class Solution {
 
     }
 }
-// GitHub connection test
+
+#MISSING NUMBER
+
+//Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+
+class Solution {
+    public int missingNumber(int[] nums) {
+        
+        int n=nums.length;
+        for(int i=0;i<=n;i++){
+
+            boolean found=false;
+
+            for(int j=0;j<n;j++){
+                if(i==nums[j]){
+                    found=true;
+                    break;
+                }
+            }
+
+            if(!found){
+                return i;
+            }
+            
+        }
+        return -1;
+      
+    }
+}
+
+// 1. visualize 
+// 2.understand why to use variable like found
+// 3.understand where should we write return  
  
 
