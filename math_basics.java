@@ -78,5 +78,35 @@ class Solution {
 // 1. visualize 
 // 2.understand why to use variable like found
 // 3.understand where should we write return  
- 
 
+#Count the Digits That Divide a Number
+
+// Given an integer num, return the number of digits in num that divide num.
+// An integer val divides nums if nums % val == 0.
+
+class Solution {
+    public int countDigits(int num) {
+        
+        int count=0;
+        int original =num;
+        while(num>0){
+            int lastdigit=num%10;
+            if(original%lastdigit==0){
+                count++;
+            }
+            num=num/10;
+
+        }
+        return count;
+    }
+}
+ 
+// one very very vital thing that one can know is......
+// The input num you are sending 
+// =>Is getting reduced in each step(changing)
+// =>At last it is becoming 0
+
+// Soo to check whether each digit of num is dividing num...FIRST your num should be stable and it should not change then only we can check....soo soo soo to keep num static or constant  without making it change 
+// first only we are storing it in another variable to keep it static...bec we know that it will change afterwards ...soo first only we are making it safe ...prevention is better than cure
+// See dry running your code very very very precisely by considering each line is very important 
+// here you usually tend to miss original=num..you will get error
