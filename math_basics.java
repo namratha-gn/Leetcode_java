@@ -110,3 +110,70 @@ class Solution {
 // first only we are storing it in another variable to keep it static...bec we know that it will change afterwards ...soo first only we are making it safe ...prevention is better than cure
 // See dry running your code very very very precisely by considering each line is very important 
 // here you usually tend to miss original=num..you will get error
+
+#Self dividing number
+
+// A self-dividing number is a number that is divisible by every digit it contains.
+
+// For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 % 8 == 0.
+// A self-dividing number is not allowed to contain the digit zero.
+
+// Given two integers left and right, return a list of all the self-dividing numbers in the range [left, right] (both inclusive).
+
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+
+        List<Integer> list = new ArrayList<>();
+        for(int i=left;i<=right;i++){
+            int original=i;
+            int temp=i;
+            int count1=0;
+
+            while(temp>0){
+                int lastdigit=temp%10;
+
+                if(lastdigit == 0) {
+                    count1 = -1;
+                    break;
+                }
+
+                if(original%lastdigit==0){
+                 count1++;  
+                }
+                temp=temp/10;
+            }
+
+            String str=String.valueOf(original);
+            if(str.length()==count1) {
+               list.add(original);
+            }
+        }
+        return list;
+    }
+}
+
+//OR
+
+// Also can be written like this...we are using using valid to just say audience or reader that we found 0. and we are writing break
+// and using that valid variable forward in code and writing condition in such a way the condition should be 0 entire code doesn't work and go for next iteration
+
+boolean valid = true;
+
+while(temp > 0) {
+    int lastdigit = temp % 10;
+
+    if(lastdigit == 0) {
+        valid = false;
+        break;
+    }
+
+    if(original % lastdigit == 0) {
+        count1++;
+    }
+
+    temp = temp / 10;
+}
+
+if(valid && str.length() == count1) {
+    list.add(original);
+}
