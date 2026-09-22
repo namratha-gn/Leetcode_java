@@ -111,3 +111,15 @@
 //we use this kind of thing in our code....sikkudre break aagu
 //if found==true 
 //break
+
+// if(str.charAt(i)-'0'== x)
+// observe this line of code...
+// str.charAt(i)=character
+// '0'= character zero
+// x=integer
+// why we are doing substraction from zero??
+// if character is there..then internally there will be unicodes..that unicodes gets substracted and resultant is going to be integer
+// Ex. '5'-'0'=5(integer)
+// now we can easily comapre this integer with x 
+
+// ALWAYS WHEN DEALING WITH CHARACTER OF A STRING HAVE A UNICODES IN MIND AND SUBSTRACTION
