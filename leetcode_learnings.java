@@ -123,3 +123,6 @@
 // now we can easily comapre this integer with x 
 
 // ALWAYS WHEN DEALING WITH CHARACTER OF A STRING HAVE A UNICODES IN MIND AND SUBSTRACTION
+
+*******************************REMEMBER REMEMBER REMEMBER***********************************
+when you are dealing with something like i*i pls remember there might be a overflow...soo in that conditions instead of int try to use long
