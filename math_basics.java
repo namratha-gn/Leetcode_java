@@ -46,34 +46,7 @@ class Solution {
     }
 }
 
-#MISSING NUMBER
 
-//Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
-
-class Solution {
-    public int missingNumber(int[] nums) {
-        
-        int n=nums.length;
-        for(int i=0;i<=n;i++){
-
-            boolean found=false;
-
-            for(int j=0;j<n;j++){
-                if(i==nums[j]){
-                    found=true;
-                    break;
-                }
-            }
-
-            if(!found){
-                return i;
-            }
-            
-        }
-        return -1;
-      
-    }
-}
 
 // 1. visualize 
 // 2.understand why to use variable like found
@@ -84,22 +57,7 @@ class Solution {
 // Given an integer num, return the number of digits in num that divide num.
 // An integer val divides nums if nums % val == 0.
 
-class Solution {
-    public int countDigits(int num) {
-        
-        int count=0;
-        int original =num;
-        while(num>0){
-            int lastdigit=num%10;
-            if(original%lastdigit==0){
-                count++;
-            }
-            num=num/10;
 
-        }
-        return count;
-    }
-}
  
 // one very very vital thing that one can know is......
 // The input num you are sending 
@@ -120,60 +78,27 @@ class Solution {
 
 // Given two integers left and right, return a list of all the self-dividing numbers in the range [left, right] (both inclusive).
 
+
+
+#Fibbonnaci
+
+// The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
+
+// F(0) = 0, F(1) = 1
+// F(n) = F(n - 1) + F(n - 2), for n > 1.
+// Given n, calculate F(n).
+
 class Solution {
-    public List<Integer> selfDividingNumbers(int left, int right) {
+    public int fib(int n) {
+        int a=0;
+        int b=1;
+        for(int i=0;i<n;i++){
+            System.out.print(a);
 
-        List<Integer> list = new ArrayList<>();
-        for(int i=left;i<=right;i++){
-            int original=i;
-            int temp=i;
-            int count1=0;
-
-            while(temp>0){
-                int lastdigit=temp%10;
-
-                if(lastdigit == 0) {
-                    count1 = -1;
-                    break;
-                }
-
-                if(original%lastdigit==0){
-                 count1++;  
-                }
-                temp=temp/10;
-            }
-
-            String str=String.valueOf(original);
-            if(str.length()==count1) {
-               list.add(original);
-            }
+            int c=a+b;
+            a=b;
+            b=c;
         }
-        return list;
+        return a;
     }
-}
-
-//OR
-
-// Also can be written like this...we are using using valid to just say audience or reader that we found 0. and we are writing break
-// and using that valid variable forward in code and writing condition in such a way the condition should be 0 entire code doesn't work and go for next iteration
-
-boolean valid = true;
-
-while(temp > 0) {
-    int lastdigit = temp % 10;
-
-    if(lastdigit == 0) {
-        valid = false;
-        break;
-    }
-
-    if(original % lastdigit == 0) {
-        count1++;
-    }
-
-    temp = temp / 10;
-}
-
-if(valid && str.length() == count1) {
-    list.add(original);
 }
